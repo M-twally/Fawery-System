@@ -1,6 +1,8 @@
 package PhaseOne;
 
-public class registrationCTRL {
+import java.util.HashMap;
+
+public class userCTRL {
     databaseEntity entity =new databaseEntity();
     public boolean signUp(String userName, String email, String password){
          user user =new user(userName, email,password);
@@ -24,6 +26,16 @@ public class registrationCTRL {
     public void ShowUserData(String email,String password){
         entity.getUserData(email,password);
     }
+    public void addWallet(float amount){
+    	  entity.addToWallet(amount);
+    	  }
+    	public HashMap<String, Integer> showSpecialDiscounts(){
+    	    return entity.getDiscounts();
+    	    }
+    	public int ShowOverallDiscount()
+    	{
+    	    return entity.getOverallDiscount();
+    	    }
 
 
 

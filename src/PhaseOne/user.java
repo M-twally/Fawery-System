@@ -6,6 +6,7 @@ public class user {
     String userName;
     String email;
     String Password;
+    float walletBalance;
     Vector<transaction>transactionsVector=new Vector<>();
 
     public user(String userName, String email, String password) {

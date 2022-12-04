@@ -65,9 +65,9 @@ public class databaseEntity {
  public void setCurrentUser(user currentUser) {
         this.currentUser = currentUser;
  }
-// public void addToWallet(float amount){
-//        getCurrentUser().walletBalance=amount;
-// }
+ public void addToWallet(float amount){
+        getCurrentUser().walletBalance=amount;
+ }
  public HashMap<String, Integer> getDiscounts() {
         return discounts;
  }

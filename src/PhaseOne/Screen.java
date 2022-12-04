@@ -6,7 +6,7 @@ public class Screen {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        registrationCTRL ctrl =new registrationCTRL();
+        userCTRL ctrl =new userCTRL();
         int choice;
         do{
             try {
