@@ -1,0 +1,14 @@
+package Services;
+
+public class Orange  extends factoryServiceProvider {
+	@Override
+	protected serviceProduct createService(String type) {
+			 if(type.equals("Mobile Recharge")){
+		            return new MobileRechargeServices();
+		        }else if(type.equals("Internet Payment services")){
+		            return new InternetPaymentServices() ;
+		        }
+		        return null;
+		}
+
+}
