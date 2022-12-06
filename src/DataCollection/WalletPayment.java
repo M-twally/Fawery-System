@@ -1,4 +1,4 @@
-package DataCollocation;
+package DataCollection;
 
 public class WalletPayment implements iPayment{
     private float totalPayment;

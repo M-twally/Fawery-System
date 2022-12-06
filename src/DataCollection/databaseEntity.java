@@ -1,4 +1,4 @@
-package DataCollocation;
+package DataCollection;
 
 import java.util.Objects;
 import java.util.Vector;
@@ -26,14 +26,14 @@ public class databaseEntity {
        }
 
        public void getUsers(){
-              for (DataCollocation.user user : userVector) {
+              for (DataCollection.user user : userVector) {
                      System.out.println(user.userName);
                      System.out.println(user.email);
                      user.getUserTransactions();
               }
        }
        public boolean checkingUserExist(String email){
-              for (DataCollocation.user user : userVector) {
+              for (DataCollection.user user : userVector) {
                      if (Objects.equals(user.email, email)) {
                             return true;
                      }
@@ -42,7 +42,7 @@ public class databaseEntity {
        }
 
        public boolean checkingUserData(String email,String password){
-              for (DataCollocation.user user : userVector) {
+              for (DataCollection.user user : userVector) {
                      if (Objects.equals(user.email, email) && Objects.equals(user.Password, password)) {
                             setCurrentUser(user);
                             return true;
@@ -51,7 +51,7 @@ public class databaseEntity {
               return false;
        }
        public void getUserData(String email,String password){
-              for (DataCollocation.user user : userVector) {
+              for (DataCollection.user user : userVector) {
                      if (Objects.equals(user.email, email) && Objects.equals(user.Password, password)) {
                             System.out.println("UserName:"+user.userName);
                             System.out.println("email:"+user.email);

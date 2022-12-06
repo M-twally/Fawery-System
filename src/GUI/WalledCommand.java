@@ -1,7 +1,7 @@
 package GUI;
 import java.util.Scanner;
 
-import DataCollocation.userCTRL;
+import DataCollection.userCTRL;
 
 public class WalledCommand implements iCommand {
     @Override

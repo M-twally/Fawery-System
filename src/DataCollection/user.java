@@ -1,4 +1,4 @@
-package DataCollocation;
+package DataCollection;
 
 import java.util.Vector;
 
@@ -43,7 +43,7 @@ public class user {
         return transactionsVector;
     }
     public  void getUserTransactions(){
-        for (DataCollocation.transaction transaction: transactionsVector) {
+        for (DataCollection.transaction transaction: transactionsVector) {
             System.out.print("transactionServiceType:");
             System.out.println(transaction.transactionServiceType);
             System.out.print("transactionType:");

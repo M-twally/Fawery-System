@@ -1,4 +1,4 @@
-package DataCollocation;
+package DataCollection;
 
 public class adminCTRL {
          databaseEntity entity =databaseEntity.getInstance();

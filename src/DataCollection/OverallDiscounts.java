@@ -1,11 +1,11 @@
-package DataCollocation;
+package DataCollection;
 
 public class OverallDiscounts extends  Decorator{
     iPayment iPayment;
     private float totalPayment;
     databaseEntity entity =databaseEntity.getInstance();
 
-    public OverallDiscounts(DataCollocation.iPayment iPayment) {
+    public OverallDiscounts(DataCollection.iPayment iPayment) {
         this.iPayment = iPayment;
     }
 

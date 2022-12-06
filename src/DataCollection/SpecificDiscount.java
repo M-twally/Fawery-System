@@ -1,4 +1,4 @@
-package DataCollocation;
+package DataCollection;
 
 import java.util.HashMap;
 
@@ -6,7 +6,7 @@ public class SpecificDiscount extends Decorator{
     iPayment iPayment;
     HashMap<String,Integer> discount = new HashMap<String,Integer>();
 
-    public SpecificDiscount(DataCollocation.iPayment iPayment) {
+    public SpecificDiscount(DataCollection.iPayment iPayment) {
         this.iPayment = iPayment;
     }
     @Override

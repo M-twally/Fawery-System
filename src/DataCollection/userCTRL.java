@@ -1,4 +1,4 @@
-package DataCollocation;
+package DataCollection;
 import Services.*;
 
 import java.util.HashMap;

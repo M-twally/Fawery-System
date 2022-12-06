@@ -1,4 +1,4 @@
-package DataCollocation;
+package DataCollection;
 
 public class transaction {
     int id;

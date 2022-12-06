@@ -1,6 +1,7 @@
 package GUI;
-import DataCollocation.*;
 import java.util.Scanner;
+
+import DataCollection.*;
 import Services.*;
 
 public class SearchCommand implements iCommand {
