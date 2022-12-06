@@ -1,16 +1,40 @@
 package PhaseOne;
 
 public class transaction {
-    static int id;
+    int id;
     String transactionType;
-    int amountOfTrans;
+    String transactionServiceType;
+    float amountOfTrans;
 
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
-    public static void setId(int id) {
-        transaction.id = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
+    public String getTransactionType() {
+        return transactionType;
+    }
+
+    public void setTransactionType(String transactionType) {
+        this.transactionType = transactionType;
+    }
+
+    public float getAmountOfTrans() {
+        return amountOfTrans;
+    }
+
+    public void setAmountOfTrans(float amountOfTrans) {
+        this.amountOfTrans = amountOfTrans;
+    }
+
+    public String getTransactionServiceType() {
+        return transactionServiceType;
+    }
+
+    public void setTransactionServiceType(String transactionServiceType) {
+        this.transactionServiceType = transactionServiceType;
+    }
 }

@@ -5,3 +5,13 @@
 /user.class
 /adminCTRL.class
 /userCTRL.class
+/iPayment.class
+/Decorator.class
+/OverallDiscount.class
+/OverallDiscounts.class
+/SpecificDiscount.class
+/CashPayment.class
+/CreditCard.class
+/creditCard.class
+/Walletpayment.class
+/WalletPayment.class

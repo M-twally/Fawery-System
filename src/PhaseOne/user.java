@@ -42,8 +42,20 @@ public class user {
     public Vector<transaction> getTransactionsVector() {
         return transactionsVector;
     }
+    public  void getUserTransactions(){
+        for (PhaseOne.transaction transaction: transactionsVector) {
+            System.out.print("transactionServiceType:");
+            System.out.println(transaction.transactionServiceType);
+            System.out.print("transactionType:");
+            System.out.println(transaction.transactionType);
+            System.out.println("amountOfTrans:");
+            System.out.println(transaction.amountOfTrans);
+        }
+    }
 
     public void setTransactionsVector(Vector<transaction> transactionsVector) {
         this.transactionsVector = transactionsVector;
     }
+
+
 }
