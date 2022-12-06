@@ -1,6 +1,8 @@
-package PhaseOne;
+package GUI;
 
 import java.util.Scanner;
+
+import PhaseOne.userCTRL;
 
 public class Screen {
 
