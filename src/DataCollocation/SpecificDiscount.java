@@ -1,12 +1,12 @@
-package PhaseOne;
+package DataCollocation;
 
 import java.util.HashMap;
 
-public class SpecificDiscount implements iPayment{
+public class SpecificDiscount extends Decorator{
     iPayment iPayment;
     HashMap<String,Integer> discount = new HashMap<String,Integer>();
 
-    public SpecificDiscount(PhaseOne.iPayment iPayment) {
+    public SpecificDiscount(DataCollocation.iPayment iPayment) {
         this.iPayment = iPayment;
     }
     @Override

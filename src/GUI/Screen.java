@@ -2,7 +2,7 @@ package GUI;
 
 import java.util.Scanner;
 
-import PhaseOne.userCTRL;
+import DataCollocation.userCTRL;
 
 public class Screen {
 

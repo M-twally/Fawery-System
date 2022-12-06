@@ -1,6 +1,6 @@
-package PhaseOne;
+package DataCollocation;
 
-public class CashPayment implements iPayment{
+public class creditCard implements iPayment{
     private float totalPayment;
     @Override
     public float pay(transaction transaction) {

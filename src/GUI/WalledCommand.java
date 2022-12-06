@@ -1,7 +1,7 @@
 package GUI;
-import PhaseOne.userCTRL;
-
 import java.util.Scanner;
+
+import DataCollocation.userCTRL;
 
 public class WalledCommand implements iCommand {
     @Override

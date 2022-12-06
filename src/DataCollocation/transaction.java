@@ -1,4 +1,4 @@
-package PhaseOne;
+package DataCollocation;
 
 public class transaction {
     int id;

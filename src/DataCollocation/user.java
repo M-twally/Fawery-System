@@ -1,4 +1,4 @@
-package PhaseOne;
+package DataCollocation;
 
 import java.util.Vector;
 
@@ -43,7 +43,7 @@ public class user {
         return transactionsVector;
     }
     public  void getUserTransactions(){
-        for (PhaseOne.transaction transaction: transactionsVector) {
+        for (DataCollocation.transaction transaction: transactionsVector) {
             System.out.print("transactionServiceType:");
             System.out.println(transaction.transactionServiceType);
             System.out.print("transactionType:");

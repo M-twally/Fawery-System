@@ -1,11 +1,11 @@
-package PhaseOne;
+package DataCollocation;
 
 public class OverallDiscounts extends  Decorator{
     iPayment iPayment;
     private float totalPayment;
     databaseEntity entity =databaseEntity.getInstance();
 
-    public OverallDiscounts(PhaseOne.iPayment iPayment) {
+    public OverallDiscounts(DataCollocation.iPayment iPayment) {
         this.iPayment = iPayment;
     }
 

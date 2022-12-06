@@ -1,4 +1,4 @@
-package PhaseOne;
+package DataCollocation;
 
 public class WalletPayment implements iPayment{
     private float totalPayment;
