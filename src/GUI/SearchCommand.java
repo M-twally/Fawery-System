@@ -1,6 +1,10 @@
 package GUI;
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import Controlers.IservicesProvider;
+import Controlers.Vodafone;
+import Controlers.We;
 import DataCollection.*;
 import Services.*;
 
@@ -40,8 +44,23 @@ public class SearchCommand implements iCommand {
                                 System.out.println("0-back");
                                 int choice0 = Integer.parseInt(scanner.nextLine());
                                 if(choice0==1){
-                                    factoryServiceProvider service = new we();
-                                    ctrl.callForm(service,"Mobile Recharge","We");
+                                	 IservicesProvider service=new We();
+                             	    ArrayList<String> Data = new ArrayList<String>();
+                             	    ArrayList<String> TakeData = new ArrayList<String>();
+
+                               	    Data=service.Createform(1).createForm();
+                             	    System.out.println(Data.get(0));
+                                     String phone = scanner.nextLine();
+                             	    System.out.println(Data.get(1));
+                                     String amount = scanner.nextLine();
+                                     TakeData.add(phone);
+                                     TakeData.add(amount);
+                                     if(service.CreateHandler(1, TakeData).Handler()) {
+                                     	System.out.println("OPERATION COMPLETE!");
+                                     }else {
+                                     	System.out.println("PLEASE CHECK THE ENTERED DATA(MOBILE NUMBER OR AMOUNT)");
+                                     }
+                                   
                                     while (true){
                                         System.out.println("please choose A payment method ");//trans
                                         System.out.println("1-pay by cash ");//trans
@@ -88,8 +107,21 @@ public class SearchCommand implements iCommand {
 
 
                                 }else if(choice0==3){
-                                    factoryServiceProvider service = new Vodafone();
-                                    ctrl.callForm(service,"Mobile Recharge","Vodafone");
+                                	 IservicesProvider service=new Vodafone();
+                              	    ArrayList<String> Data = new ArrayList<String>();
+                              	    ArrayList<String> TakeData = new ArrayList<String>();
+                                	    Data=service.Createform(1).createForm();
+                              	    System.out.println(Data.get(0));
+                                      String phone = scanner.nextLine();
+                              	    System.out.println(Data.get(1));
+                                      String amount = scanner.nextLine();
+                                      TakeData.add(phone);
+                                      TakeData.add(amount);
+                                      if(service.CreateHandler(1, TakeData).Handler()) {
+                                      	System.out.println("OPERATION COMPLETE!");
+                                      }else {
+                                      	System.out.println("PLEASE CHECK THE ENTERED DATA(MOBILE NUMBER OR AMOUNT)");
+                                      }
                                     while(true){
                                         System.out.println("please choose A payment method ");//trans
                                         System.out.println("1-pay by cash ");//trans
@@ -205,7 +237,7 @@ public class SearchCommand implements iCommand {
                                     }
 
                                 }else if(choice0==3){
-                                    factoryServiceProvider service = new Vodafone();
+                                    factoryServiceProvider service = new vodafoneE();
                                     ctrl.callForm(service,"Internet Payment services","Vodafone");
                                     while (true){
                                         System.out.println("please choose A payment method ");//trans

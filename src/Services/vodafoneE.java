@@ -1,6 +1,6 @@
 package Services;
 
-public class Vodafone extends factoryServiceProvider {
+public class vodafoneE extends factoryServiceProvider {
 
 	@Override
 	public serviceProduct createService(String type) {
