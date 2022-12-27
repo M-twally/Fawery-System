@@ -1,0 +1,27 @@
+Index: FawryService/src/main/java/com/company/IdeaProjects/FawryService/Bsl/ServicesBSL.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/FawryService/src/main/java/com/company/IdeaProjects/FawryService/Bsl/ServicesBSL.java b/FawryService/src/main/java/com/company/IdeaProjects/FawryService/Bsl/ServicesBSL.java
+--- a/FawryService/src/main/java/com/company/IdeaProjects/FawryService/Bsl/ServicesBSL.java	
++++ b/FawryService/src/main/java/com/company/IdeaProjects/FawryService/Bsl/ServicesBSL.java	(date 1672094994688)
+@@ -24,7 +24,6 @@
+                     z++;
+                 }
+                 if(totalChar==input.length()){
+-                    System.out.println("koko");
+                     return true;
+                 }
+             }
+@@ -36,10 +35,8 @@
+     public ArrayList<servicesType> Search(String serviceInput){
+         serviceInput.toUpperCase(Locale.ROOT);
+         ArrayList<servicesType> listOfServices=new ArrayList<>();
+-        System.out.println("dsa");
+         for(int i=0;i<entity.getServicesTypes().size();i++){
+             if(isMatching(serviceInput,entity.getServicesTypes().get(i).getName())){
+-                System.out.println("lolo");
+                 listOfServices.add(entity.getServicesTypes().get(i));
+             }
+         }
