@@ -23,8 +23,8 @@ public class userCTRL {
         return userBSl.signIn(user);
       }
       @GetMapping(value = "/searchForServices/{serviceInput}")
-      public ArrayList<servicesType> searchMatchingServices(@PathVariable ("serviceInput") String serviceInput){
-         return servicesBsl.Search(serviceInput);
+      public ArrayList<String> searchMatchingServices(@PathVariable ("serviceInput") String serviceInput){
+          return servicesBsl.Search(serviceInput);
       }
 
       public user  getUser(){

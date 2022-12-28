@@ -3,15 +3,14 @@ import com.company.IdeaProjects.FawryService.Controlers.*;
 public class servicesType {
     private String name;
     private int id;
-//    private Iform iform;
-//    private Ihandler ihandler;
+    private Iform iform;
+    private Ihandler ihandler;
     private static int ID=1;
 
-    public servicesType(String name) {
+    public servicesType(String name,Iform iform,Ihandler ihandler) {
         this.name = name;
-        this.id = id;
-//        this.iform = iform;
-//        this.ihandler = ihandler;
+        this.iform = iform;
+        this.ihandler = ihandler;
         id=ID;
         ID++;
     }
@@ -24,7 +23,11 @@ public class servicesType {
         return id;
     }
 
-//    public Iform getIform() {
-//        return iform;
-//    }
+    public Iform getIform() {
+        return iform;
+    }
+
+    public Ihandler getIhandler() {
+        return ihandler;
+    }
 }

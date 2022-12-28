@@ -14,7 +14,7 @@ public class ServicesBSL {
                 int z=i;
                 int totalChar=0;
                 for(int j=0;j<input.length()&&z<Service.length();j++){
-                    if(input.charAt(j)==Service.charAt(j)){
+                    if(input.charAt(j)==Service.charAt(z)){
                         totalChar++;
                     }else {
                         break;
@@ -22,7 +22,6 @@ public class ServicesBSL {
                     z++;
                 }
                 if(totalChar==input.length()){
-                    System.out.println("koko");
                     return true;
                 }
             }
@@ -31,16 +30,35 @@ public class ServicesBSL {
         return false;
     }
 
-    public ArrayList<servicesType> Search(String serviceInput){
-        serviceInput.toUpperCase(Locale.ROOT);
-        ArrayList<servicesType> listOfServices=new ArrayList<>();
-        System.out.println("dsa");
-        for(int i=0;i<entity.getServicesTypes().size();i++){
-            if(isMatching(serviceInput,entity.getServicesTypes().get(i).getName())){
-                System.out.println("lolo");
-                listOfServices.add(entity.getServicesTypes().get(i));
+    public ArrayList<String> Search(String serviceInput){
+        String swap=serviceInput.toUpperCase();
+        String result;
+        ArrayList<String> listOfServices=new ArrayList<>();
+        for(int i = entity.getServicesTypes().size() - 1; i >= 0; i--){
+            if(isMatching(swap,entity.getServicesTypes().get(i).getName())){
+                result="ID:"+entity.getServicesTypes().get(i).getId()+" & "+"NAME:"+entity.getServicesTypes().get(i).getName();
+                listOfServices.add(result);
             }
         }
         return listOfServices;
+    }
+    public ArrayList<String> getForm(int id){
+        ArrayList<String> form=new ArrayList<>();
+        for(int i=0;i<entity.getServicesTypes().size();i++){
+            if(entity.getServicesTypes().get(i).getId()==id){
+                return entity.getServicesTypes().get(i).getIform().createForm();
+            }
+
+        }
+
+        return null;
+    }
+    public String checkHandler(int id,ArrayList<String> dataForm){
+        for(int i=0;i<entity.getServicesTypes().size();i++){
+            if(entity.getServicesTypes().get(i).getId()==id){
+                return  entity.getServicesTypes().get(i).getIhandler().Handler(dataForm);
+            }
+        }
+        return null;
     }
 }
