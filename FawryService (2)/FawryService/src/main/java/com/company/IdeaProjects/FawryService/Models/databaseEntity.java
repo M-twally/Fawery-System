@@ -40,7 +40,8 @@ public class databaseEntity {
        public void setSpecificDiscount(String name, int amount){
               discounts.put(name,amount);
        }
-       public void setOverallDiscount(int overallDiscount) {
+       public void setOverallDiscount(float overallDiscount) {
+
               OverallDiscount = overallDiscount;
        }
        public void setUserVector(Vector<user> userVector) {

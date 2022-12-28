@@ -1,6 +1,8 @@
 package com.company.IdeaProjects.FawryService.Bsl;
 import com.company.IdeaProjects.FawryService.Models.*;
 
+import java.util.ArrayList;
+import java.util.Map;
 import java.util.Objects;
 
 public class UserBSl {
@@ -41,11 +43,13 @@ public class UserBSl {
         }
         return null;
     }
-    public String PaymentMethod(int id){
-        iPayment iPay=null;
-        float TotalPayment = 0;
+    public ArrayList<String> PaymentMethod(int id){
+        iPayment iPay;
+        float TotalPayment;
+        ArrayList<String> message=new ArrayList<>();
         if(entity.getCurrentUser()==null){
-            return "YOU SHOULD SIGNIN FIRST!";
+            message.add("YOU SHOULD SIGNIN FIRST!");
+            return message;
         }else{
             if(id==2){
                 iPay=new CashPayment();
@@ -53,16 +57,18 @@ public class UserBSl {
                 iPay=new SpecificDiscount(iPay);
                 TotalPayment=iPay.pay(getTransactions());
             }else if(id==3){
-                float wallet=entity.getCurrentUser().getWalletBalance();
                 if(entity.getCurrentUser().getWalletBalance()==0){
-                    return "YOUR WALLET BALANCE IS EMPTY";
+                    message.add("YOUR WALLET BALANCE IS EMPTY");
+                    return message;
                 }
                 iPay=new WalletPayment();
                 iPay=new OverallDiscounts(iPay);
                 iPay=new SpecificDiscount(iPay);
                 TotalPayment=iPay.pay(getTransactions());
-                if(TotalPayment<0){
-                    return "YOUR WALLET BALANCE IS NOT ENOUGH";
+
+                if(TotalPayment<-1){
+                    message.add("YOUR WALLET BALANCE IS NOT ENOUGH");
+                    return message;
                 }
                 float sub=entity.getCurrentUser().getWalletBalance()-getTransactions().getAmountOfTrans();
                 TotalPayment=entity.getCurrentUser().getWalletBalance()-sub;
@@ -77,7 +83,18 @@ public class UserBSl {
         transaction t=getTransactions();
         t.setAmountOfTrans(TotalPayment);
         entity.getCurrentUser().getTransactionsVector().add(t);
-        return "YOUR ALL TOTAL PAYMENT:"+TotalPayment;
+
+        if(entity.getOverallDiscount()!=0){
+            String discount="AFTER ADDING OVER ALL DISCOUNT:"+entity.getOverallDiscount()+"%";
+            message.add(discount);
+        }
+        float SPdis=GETSpecialDiscount(entity.getCurrentUser().getLastOpenForm());
+        if(SPdis!=0){
+            String discount="SPECIFIC DISCOUNT FOR"+entity.getCurrentUser().getLastOpenForm()+":"+SPdis+"%";
+            message.add(discount);
+        }
+        message.add("YOUR ALL TOTAL PAYMENT:"+TotalPayment);
+        return message;
     }
     private transaction getTransactions(){
         transaction t=new transaction();
@@ -86,8 +103,13 @@ public class UserBSl {
         t.setAmountOfTrans(entity.getCurrentUser().getUserCurrentAmount());
         return t;
     }
-
-
-
+    private float GETSpecialDiscount(String SpecialDiscount){
+        for (Map.Entry<String,Integer> entry : entity.getDiscounts().entrySet()) {
+            if (Objects.equals(SpecialDiscount, entry.getKey())){
+                return entry.getValue();
+            }
+        }
+        return 0.0F;
+    }
 
 }

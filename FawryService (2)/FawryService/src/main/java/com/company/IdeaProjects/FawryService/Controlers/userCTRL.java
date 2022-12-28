@@ -47,7 +47,7 @@ public class userCTRL {
         return entity.getPaymentType();
     }
     @GetMapping(value = "/PaymentMethod/{ID}")
-    public String Payment(@PathVariable ("ID")int id){
+    public ArrayList<String> Payment(@PathVariable ("ID")int id){
         return userBSl.PaymentMethod(id);
     }
 
