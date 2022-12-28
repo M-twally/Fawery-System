@@ -6,7 +6,9 @@ public class user {
     String userName;
     String email;
     String Password;
-    float walletBalance;
+    float walletBalance=0;
+    float userCurrentAmount;
+    String lastOpenForm=null;
     Vector<transaction>transactionsVector=new Vector<>();
 
     public user(String userName, String email, String password) {
@@ -45,6 +47,22 @@ public class user {
     public void setWalletBalance(float walletBalance) {
         this.walletBalance = walletBalance;
     }
+    public String getLastOpenForm() {
+        return lastOpenForm;
+    }
+
+    public void setLastOpenForm(String lastOpenForm) {
+        this.lastOpenForm = lastOpenForm;
+    }
+
+    public float getUserCurrentAmount() {
+        return userCurrentAmount;
+    }
+
+    public void setUserCurrentAmount(float userCurrentAmount) {
+        this.userCurrentAmount = userCurrentAmount;
+    }
+
 
     public Vector<transaction> getTransactionsVector() {
         return transactionsVector;

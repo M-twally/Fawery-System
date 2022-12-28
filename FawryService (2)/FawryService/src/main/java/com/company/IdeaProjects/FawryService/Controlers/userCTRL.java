@@ -42,6 +42,14 @@ public class userCTRL {
     public user addToWallet(){
         return userBSl.ShowCurrentUserData();
     }
+    @GetMapping(value = "/PaymentMethod")
+    public HashMap<Integer, String> ShowWayOfPayment(){
+        return entity.getPaymentType();
+    }
+    @GetMapping(value = "/PaymentMethod/{ID}")
+    public String Payment(@PathVariable ("ID")int id){
+        return userBSl.PaymentMethod(id);
+    }
 
 
     public user  getUser(){

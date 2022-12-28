@@ -1,10 +1,15 @@
 package com.company.IdeaProjects.FawryService.Models;
 
 public class transaction {
-    int id;
+    private static int ID=1;
+    private int id;
     String transactionType;
     String transactionServiceType;
     float amountOfTrans;
+    public transaction(){
+        id=ID;
+        ID++;
+    }
 
     public int getId() {
         return id;

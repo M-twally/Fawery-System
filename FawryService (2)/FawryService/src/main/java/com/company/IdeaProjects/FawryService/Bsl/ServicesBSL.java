@@ -4,6 +4,7 @@ import com.company.IdeaProjects.FawryService.Models.servicesType;
 
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Objects;
 
 public class ServicesBSL {
     databaseEntity entity =databaseEntity.getInstance();
@@ -60,5 +61,30 @@ public class ServicesBSL {
             }
         }
         return null;
+    }
+    public String CompleteForm(int id, ArrayList<String> dataForm){
+        for(int i=0;i<entity.getServicesTypes().size();i++){
+            if(entity.getServicesTypes().get(i).getId()==id){
+                //add amount to use it in payment
+                if(Objects.equals(entity.getServicesTypes().get(i).getIhandler().Handler(dataForm), "YOUR DATA IS CORRECT")){
+                    int size=dataForm.size()-1;
+                    int amount=Integer.parseInt(dataForm.get(size));
+                    entity.getCurrentUser().setLastOpenForm(takeName(entity.getServicesTypes().get(i).getName()));
+                    entity.getCurrentUser().setUserCurrentAmount(amount);
+                }
+                return  entity.getServicesTypes().get(i).getIhandler().Handler(dataForm);
+            }
+        }
+        return null;
+    }
+    public String takeName(String name){
+        String result = null;
+        for(int i=0;i<name.length();i++){
+            if(name.charAt(i)==' '){
+                result=name.substring(i+1);
+                break;
+            }
+        }
+        return result;
     }
 }
