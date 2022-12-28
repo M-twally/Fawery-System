@@ -26,6 +26,14 @@ public class userCTRL {
       public ArrayList<String> searchMatchingServices(@PathVariable ("serviceInput") String serviceInput){
           return servicesBsl.Search(serviceInput);
       }
+    @GetMapping(value = "/ /{id}")
+    public ArrayList<String> choiceService(@PathVariable ("id")int id){
+        return servicesBsl.getForm(id);
+    }
+    @GetMapping(value = "/formInput/{serviceID}/{DataForm}")
+    public String EnterFormData(@PathVariable ("serviceID")int id ,@PathVariable ("DataForm") ArrayList<String> dataForm){
+        return servicesBsl.checkHandler(id,dataForm);
+    }
 
       public user  getUser(){
           return entity.getCurrentUser();

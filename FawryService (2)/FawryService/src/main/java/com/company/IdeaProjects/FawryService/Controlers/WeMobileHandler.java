@@ -15,7 +15,7 @@ public class WeMobileHandler extends Ihandler  {
 
 		int amount=Integer.parseInt(Data.get(1));
 		if(!(amount>=100&&amount<=300)) {
-			return "YOUR AMOUT RANGE SHOULD BE FROM 100-300";
+			return "YOUR AMOUNT RANGE SHOULD BE FROM 100-300";
 		}
 		return "YOUR DATA IS CORRECT";
 	}
