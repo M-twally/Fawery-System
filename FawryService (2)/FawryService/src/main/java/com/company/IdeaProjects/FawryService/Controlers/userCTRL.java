@@ -34,17 +34,26 @@ public class userCTRL {
     public String EnterFormData(@PathVariable ("serviceID")int id ,@PathVariable ("DataForm") ArrayList<String> dataForm){
         return servicesBsl.checkHandler(id,dataForm);
     }
+    @GetMapping(value = "/AddToWallet/{amount}")
+    public String addToWallet(@PathVariable ("amount") float amount){
+        return userBSl.addWallet(amount);
+    }
+    @GetMapping(value = "/showYourData")
+    public user addToWallet(){
+        return userBSl.ShowCurrentUserData();
+    }
 
-      public user  getUser(){
+
+    public user  getUser(){
           return entity.getCurrentUser();
       }
       public void ShowUserData(String email,String password) {
     	  entity.getUserData(email, password);
       }
 
-      public void addWallet(float amount){
-        entity.saveToWallet(amount);
-      }
+//      public void addWallet(float amount){
+//        entity.saveToWallet(amount);
+//      }
       
       public HashMap<String, Integer> showSpecialDiscounts(){
           return entity.getDiscounts();

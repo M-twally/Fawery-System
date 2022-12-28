@@ -80,6 +80,7 @@ public class databaseEntity {
               return servicesTypes;
        }
        public void saveToWallet(float amount){
-              getCurrentUser().walletBalance=amount;
+              float wallet=amount+ getCurrentUser().getWalletBalance();
+              getCurrentUser().setWalletBalance(wallet);
        }
 }

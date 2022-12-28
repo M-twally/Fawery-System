@@ -38,6 +38,13 @@ public class user {
     public void setPassword(String password) {
         Password = password;
     }
+    public float getWalletBalance() {
+        return walletBalance;
+    }
+
+    public void setWalletBalance(float walletBalance) {
+        this.walletBalance = walletBalance;
+    }
 
     public Vector<transaction> getTransactionsVector() {
         return transactionsVector;

@@ -24,6 +24,20 @@ public class UserBSl {
         }
         return "PLEASE SIGN UP FIRST!";
     }
+    public String addWallet(float amount){
+        if(entity.getCurrentUser()==null){
+            return "YOU SHOULD SIGNIN FIRST!";
+        }else {
+            entity.saveToWallet(amount);
+        }
+        return "ADDING amount:"+amount+" SUCCESSFUL YOUR WALLET BALANCE:"+entity.getCurrentUser().getWalletBalance();
+    }
+    public user ShowCurrentUserData(){
+        if(entity.getCurrentUser()!=null){
+            return entity.getCurrentUser();
+        }
+        return null;
+    }
 
 
 
