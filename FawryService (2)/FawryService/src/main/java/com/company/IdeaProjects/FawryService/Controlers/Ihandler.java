@@ -6,5 +6,5 @@ public abstract class Ihandler {
 	ArrayList<String> Data;
 
 
-	public abstract String Handler(ArrayList<String> data);
+	public abstract String Handler(ArrayList<String> Data);
 }

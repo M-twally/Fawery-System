@@ -1,9 +1,6 @@
 package com.company.IdeaProjects.FawryService.Models;
 
-import com.company.IdeaProjects.FawryService.Controlers.VodafoneMobileForm;
-import com.company.IdeaProjects.FawryService.Controlers.VodafoneMobileHandler;
-import com.company.IdeaProjects.FawryService.Controlers.WeMobileForm;
-import com.company.IdeaProjects.FawryService.Controlers.WeMobileHandler;
+import com.company.IdeaProjects.FawryService.Controlers.*;
 import javafx.util.Pair;
 
 import java.util.HashMap;
@@ -40,6 +37,8 @@ public class databaseEntity {
                      IDTransactions.put(3,"Refund transaction");
                      servicesTypes.add(new servicesType("WE MOBILE RECHARGE",new WeMobileForm(),new WeMobileHandler()));
                      servicesTypes.add(new servicesType("VODAFONE MOBILE RECHARGE",new VodafoneMobileForm(),new VodafoneMobileHandler()));
+                     servicesTypes.add(new servicesType("ORANGE MOBILE RECHARGE",new OrangeMobileForm(),new OrangeMobileHandler()));
+                     servicesTypes.add(new servicesType("ETISALAT MOBILE RECHARGE",new EtisalatMobileForm(),new EtisalatMobileHandler()));
               }
               return entity;
        }
