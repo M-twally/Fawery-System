@@ -3,11 +3,13 @@
 import java.util.Vector;
 
 public class user {
+    private static int ID=1;
+    private int id;
     String userName;
     String email;
     String Password;
     float walletBalance=0;
-    float userCurrentAmount;
+    float userCurrentAmount=0;
     String lastOpenForm=null;
     Vector<transaction>transactionsVector=new Vector<>();
 
@@ -15,6 +17,11 @@ public class user {
         this.userName = userName;
         this.email = email;
         Password = password;
+        id=ID;
+        ID++;
+    }
+    public int getId() {
+        return id;
     }
 
     public String getUserName() {
@@ -67,16 +74,16 @@ public class user {
     public Vector<transaction> getTransactionsVector() {
         return transactionsVector;
     }
-    public  void getUserTransactions(){
-        for (com.company.IdeaProjects.FawryService.Models.transaction transaction: transactionsVector) {
-            System.out.print("transactionServiceType:");
-            System.out.println(transaction.transactionServiceType);
-            System.out.print("transactionType:");
-            System.out.println(transaction.transactionType);
-            System.out.println("amountOfTrans:");
-            System.out.println(transaction.amountOfTrans);
-        }
-    }
+//    public  void getUserTransactions(){
+//        for (com.company.IdeaProjects.FawryService.Models.transaction transaction: transactionsVector) {
+//            System.out.print("transactionServiceType:");
+//            System.out.println(transaction.transactionServiceType);
+//            System.out.print("transactionType:");
+//            System.out.println(transaction.transactionType);
+//            System.out.println("amountOfTrans:");
+//            System.out.println(transaction.amountOfTrans);
+//        }
+//    }
 
     public void setTransactionsVector(Vector<transaction> transactionsVector) {
         this.transactionsVector = transactionsVector;

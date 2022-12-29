@@ -15,10 +15,6 @@ public class transaction {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getTransactionType() {
         return transactionType;
     }

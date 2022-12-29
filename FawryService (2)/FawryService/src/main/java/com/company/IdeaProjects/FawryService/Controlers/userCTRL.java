@@ -26,17 +26,19 @@ public class userCTRL {
       public ArrayList<String> searchMatchingServices(@PathVariable ("serviceInput") String serviceInput){
           return servicesBsl.Search(serviceInput);
       }
-    @GetMapping(value = "/ /{id}")
+    @GetMapping(value = "/choiceForm/{id}")
     public ArrayList<String> choiceService(@PathVariable ("id")int id){
         return servicesBsl.getForm(id);
     }
     @GetMapping(value = "/formInput/{serviceID}/{DataForm}")
     public String EnterFormData(@PathVariable ("serviceID")int id ,@PathVariable ("DataForm") ArrayList<String> dataForm){
-        return servicesBsl.checkHandler(id,dataForm);
+        return servicesBsl.CompleteForm(id,dataForm);
     }
-    @GetMapping(value = "/AddToWallet/{amount}")
-    public String addToWallet(@PathVariable ("amount") float amount){
-        return userBSl.addWallet(amount);
+
+    @PostMapping(value = "/AddToWallet")
+    String updateOverallDiscount(@RequestBody float amount){
+        return   userBSl.addWallet(amount);
+
     }
     @GetMapping(value = "/showYourData")
     public user addToWallet(){
@@ -55,14 +57,7 @@ public class userCTRL {
     public user  getUser(){
           return entity.getCurrentUser();
       }
-      public void ShowUserData(String email,String password) {
-    	  entity.getUserData(email, password);
-      }
 
-//      public void addWallet(float amount){
-//        entity.saveToWallet(amount);
-//      }
-      
       public HashMap<String, Integer> showSpecialDiscounts(){
           return entity.getDiscounts();
       }
@@ -73,11 +68,11 @@ public class userCTRL {
 //          service.orderForm(typeOfService, provider);
 //      }
 
-      public void setTransaction(transaction t  , int amount , String TransactionType, String TransactionService){
-          t.setAmountOfTrans(amount);
-          t.setTransactionType("pay");
-          t.setTransactionServiceType("Mobile recharge services");
-      }
+//      public void setTransaction(transaction t  , int amount , String TransactionType, String TransactionService){
+//          t.setAmountOfTrans(amount);
+//          t.setTransactionType("pay");
+//          t.setTransactionServiceType("Mobile recharge services");
+//      }
 //      public float payTransaction(iPayment payment, transaction t ){
 //          t.setAmountOfTrans(payment.pay(t));
 //          return payment.pay(t);

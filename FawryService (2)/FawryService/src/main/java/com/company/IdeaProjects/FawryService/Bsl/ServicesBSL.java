@@ -54,15 +54,11 @@ public class ServicesBSL {
 
         return null;
     }
-    public String checkHandler(int id,ArrayList<String> dataForm){
-        for(int i=0;i<entity.getServicesTypes().size();i++){
-            if(entity.getServicesTypes().get(i).getId()==id){
-                return  entity.getServicesTypes().get(i).getIhandler().Handler(dataForm);
-            }
-        }
-        return null;
-    }
+
     public String CompleteForm(int id, ArrayList<String> dataForm){
+        if(entity.getCurrentUser()==null){
+            return "YOU SHOULD SIGNIN FIRST!";
+        }
         for(int i=0;i<entity.getServicesTypes().size();i++){
             if(entity.getServicesTypes().get(i).getId()==id){
                 //add amount to use it in payment

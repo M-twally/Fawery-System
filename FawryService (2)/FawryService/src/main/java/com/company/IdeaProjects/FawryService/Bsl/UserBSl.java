@@ -27,7 +27,7 @@ public class UserBSl {
     }
     public String addWallet(float amount){
         if(entity.getCurrentUser()==null){
-            return "YOU SHOULD SIGNIN FIRST!";
+            return "YOU SHOULD SIGNING FIRST!";
         }else {
             entity.saveToWallet(amount);
             transaction t=new transaction();
@@ -48,7 +48,7 @@ public class UserBSl {
         float TotalPayment;
         ArrayList<String> message=new ArrayList<>();
         if(entity.getCurrentUser()==null){
-            message.add("YOU SHOULD SIGNIN FIRST!");
+            message.add("YOU SHOULD SIGNING FIRST!");
             return message;
         }else{
             if(id==2){

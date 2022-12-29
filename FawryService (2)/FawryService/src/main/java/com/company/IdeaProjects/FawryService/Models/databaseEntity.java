@@ -13,6 +13,7 @@ public class databaseEntity {
        Vector<user>userVector=new Vector<>();
        private static HashMap<String,Integer> discounts = new HashMap<String,Integer>();
        private static HashMap<Integer,String> PaymentType = new HashMap<Integer,String>();
+       private static HashMap<Integer,String> IDTransactions = new HashMap<Integer,String>();
        private static databaseEntity entity =null;
        private  user currentUser=null;
        private float OverallDiscount=0;
@@ -29,6 +30,9 @@ public class databaseEntity {
                      PaymentType.put(1,"Via CreditCard");
                      PaymentType.put(2,"CashPayment");
                      PaymentType.put(3,"WalletPayment");
+                     IDTransactions.put(1,"Payment transaction");
+                     IDTransactions.put(2,"Add to wallet transaction");
+                     IDTransactions.put(3,"Refund transaction");
                      servicesTypes.add(new servicesType("WE MOBILE RECHARGE",new WeMobileForm(),new WeMobileHandler()));
                      servicesTypes.add(new servicesType("VODAFONE MOBILE RECHARGE",new VodafoneMobileForm(),new VodafoneMobileHandler()));
               }
@@ -55,17 +59,7 @@ public class databaseEntity {
               for (com.company.IdeaProjects.FawryService.Models.user user : userVector) {
                      System.out.println(user.userName);
                      System.out.println(user.email);
-                     user.getUserTransactions();
-              }
-       }
-       public void getUserData(String email,String password){
-              for (com.company.IdeaProjects.FawryService.Models.user user : userVector) {
-                     if (Objects.equals(user.email, email) && Objects.equals(user.Password, password)) {
-                            System.out.println("UserName:"+user.userName);
-                            System.out.println("email:"+user.email);
-                            System.out.println("wallet:"+user.walletBalance);
-                            break;
-                     }
+//                     user.getUserTransactions();
               }
        }
        public user getCurrentUser() {
@@ -93,7 +87,12 @@ public class databaseEntity {
               float wallet=amount+ getCurrentUser().getWalletBalance();
               getCurrentUser().setWalletBalance(wallet);
        }
+
        public  HashMap<Integer, String> getPaymentType() {
               return PaymentType;
+       }
+
+       public  HashMap<Integer, String> getIDTransactions() {
+              return IDTransactions;
        }
 }
