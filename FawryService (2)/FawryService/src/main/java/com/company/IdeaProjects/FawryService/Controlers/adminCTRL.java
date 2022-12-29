@@ -3,6 +3,7 @@ import com.company.IdeaProjects.FawryService.Models.databaseEntity;
 import com.company.IdeaProjects.FawryService.Bsl.AdminBSL;
 import com.company.IdeaProjects.FawryService.Models.transaction;
 import com.company.IdeaProjects.FawryService.Models.user;
+import javafx.util.Pair;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -33,10 +34,8 @@ public class adminCTRL {
     }
 
 
-    public void updateSpecificDiscount(String name,int amount){
-        entity.setSpecificDiscount(name, amount);
-    }
-    public void showAllUser(){
-        entity.getUsers();
+    @GetMapping(value = "/listOfSpecificDiscountWithID")
+    public  HashMap<Integer, Pair<String,Float>>listOfSpecificDiscount(){
+        return entity.getIDSpecificDiscount();
     }
 }

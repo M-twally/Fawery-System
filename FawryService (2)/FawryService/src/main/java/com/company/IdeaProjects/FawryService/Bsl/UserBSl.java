@@ -1,5 +1,6 @@
 package com.company.IdeaProjects.FawryService.Bsl;
 import com.company.IdeaProjects.FawryService.Models.*;
+import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -48,7 +49,7 @@ public class UserBSl {
         float TotalPayment;
         ArrayList<String> message=new ArrayList<>();
         if(entity.getCurrentUser()==null){
-            message.add("YOU SHOULD SIGNING FIRST!");
+            message.add("YOU SHOULD SIGN IN FIRST!");
             return message;
         }else{
             if(id==2){
@@ -104,9 +105,9 @@ public class UserBSl {
         return t;
     }
     private float GETSpecialDiscount(String SpecialDiscount){
-        for (Map.Entry<String,Integer> entry : entity.getDiscounts().entrySet()) {
-            if (Objects.equals(SpecialDiscount, entry.getKey())){
-                return entry.getValue();
+        for (Map.Entry<Integer, Pair<String,Float>> entry : entity.getIDSpecificDiscount().entrySet()) {
+            if (Objects.equals(entry.getValue().getKey(), SpecialDiscount)){
+                return entry.getValue().getValue();
             }
         }
         return 0.0F;

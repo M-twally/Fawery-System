@@ -55,15 +55,15 @@ public class userCTRL {
 
 
     public user  getUser(){
-          return entity.getCurrentUser();
-      }
+        return entity.getCurrentUser();
+    }
 
-      public HashMap<String, Integer> showSpecialDiscounts(){
-          return entity.getDiscounts();
-      }
-      public float ShowOverallDiscount(){
-          return entity.getOverallDiscount();
-      }
+
+
+
+    public float ShowOverallDiscount(){
+        return entity.getOverallDiscount();
+    }
 //      public void callForm(factoryServiceProvider service,String typeOfService,String provider) {
 //          service.orderForm(typeOfService, provider);
 //      }

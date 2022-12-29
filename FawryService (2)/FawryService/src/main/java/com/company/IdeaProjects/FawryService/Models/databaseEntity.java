@@ -4,6 +4,7 @@ import com.company.IdeaProjects.FawryService.Controlers.VodafoneMobileForm;
 import com.company.IdeaProjects.FawryService.Controlers.VodafoneMobileHandler;
 import com.company.IdeaProjects.FawryService.Controlers.WeMobileForm;
 import com.company.IdeaProjects.FawryService.Controlers.WeMobileHandler;
+import javafx.util.Pair;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -11,22 +12,26 @@ import java.util.Vector;
 
 public class databaseEntity {
        Vector<user>userVector=new Vector<>();
-       private static HashMap<String,Integer> discounts = new HashMap<String,Integer>();
        private static HashMap<Integer,String> PaymentType = new HashMap<Integer,String>();
        private static HashMap<Integer,String> IDTransactions = new HashMap<Integer,String>();
+       private static HashMap<Integer, Pair<String,Float>> SpecificDiscount = new HashMap<Integer,Pair<String,Float>>();
        private static databaseEntity entity =null;
        private  user currentUser=null;
        private float OverallDiscount=0;
        private static   Vector<servicesType> servicesTypes=new Vector<>();
+       private static Pair<String,Float> P1=new Pair<>("MOBILE RECHARGE",0.0F);
+       private static Pair<String,Float> P2=new Pair<>("Internet Payment",0.0F);
+       private static Pair<String,Float> P3=new Pair<>("Landline services",0.0F);
+       private static Pair<String,Float> P4=new Pair<>("Donations",0.0F);
 
 
        public static databaseEntity getInstance(){
               if(entity==null){
                      entity=new databaseEntity();
-                     discounts.put("MOBILE RECHARGE",0);
-                     discounts.put("Internet Payment ",0);
-                     discounts.put("Landline services",0);
-                     discounts.put("Donations",0);
+                     SpecificDiscount.put(1,P1);
+                     SpecificDiscount.put(2,P2);
+                     SpecificDiscount.put(3,P3);
+                     SpecificDiscount.put(4,P4);
                      PaymentType.put(1,"Via CreditCard");
                      PaymentType.put(2,"CashPayment");
                      PaymentType.put(3,"WalletPayment");
@@ -41,15 +46,9 @@ public class databaseEntity {
        public void setCurrentUser(user currentUser) {
               this.currentUser = currentUser;
        }
-       public void setSpecificDiscount(String name, int amount){
-              discounts.put(name,amount);
-       }
        public void setOverallDiscount(float overallDiscount) {
 
               OverallDiscount = overallDiscount;
-       }
-       public void setUserVector(Vector<user> userVector) {
-              this.userVector = userVector;
        }
 
        public Vector<user> getUserVector() {
@@ -70,16 +69,11 @@ public class databaseEntity {
               }
               return currentUser;
        }
-
-
        public float getOverallDiscount() {
               return OverallDiscount;
        }
 
 
-       public HashMap<String, Integer> getDiscounts() {
-              return discounts;
-       }
        public  Vector<servicesType> getServicesTypes() {
               return servicesTypes;
        }
@@ -94,5 +88,9 @@ public class databaseEntity {
 
        public  HashMap<Integer, String> getIDTransactions() {
               return IDTransactions;
+       }
+
+       public HashMap<Integer, Pair<String,Float>> getIDSpecificDiscount() {
+              return SpecificDiscount;
        }
 }
