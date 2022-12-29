@@ -2,6 +2,7 @@ package com.company.IdeaProjects.FawryService.Bsl;
 
 import com.company.IdeaProjects.FawryService.Models.databaseEntity;
 import com.company.IdeaProjects.FawryService.Models.transaction;
+import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -34,6 +35,20 @@ public class AdminBSL {
             }
         }
         return t;
+    }
+    public String AddingSpecificDiscount(float arr[]){
+        int id = (int) arr[0];
+        float amount=arr[1];
+
+        for (Map.Entry<Integer, Pair<String,Float>> entry : entity.getIDSpecificDiscount().entrySet()) {
+            if (Objects.equals(entry.getKey(), id)){
+                String sp=entry.getValue().getKey();
+                Pair<String,Float> P1=new Pair<>(sp,amount);
+                entry.setValue(P1);
+                return "ADDING SUCCESSFULLY";
+            }
+        }
+        return "YOUR OPERATION ARE FAILED CHECK TOUR ID";
     }
     private String GETtansactionName(int id){
         for (Map.Entry<Integer,String> entry : entity.getIDTransactions().entrySet()) {

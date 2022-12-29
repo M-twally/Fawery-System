@@ -38,4 +38,8 @@ public class adminCTRL {
     public  HashMap<Integer, Pair<String,Float>>listOfSpecificDiscount(){
         return entity.getIDSpecificDiscount();
     }
+    @PostMapping(value = "/AddingSpecificDiscount")
+    String updateOverallDiscount(@RequestBody float arr[]){
+        return adminBSL.AddingSpecificDiscount(arr);
+    }
 }
