@@ -39,6 +39,9 @@ public class databaseEntity {
                      servicesTypes.add(new servicesType("VODAFONE MOBILE RECHARGE",new VodafoneMobileForm(),new VodafoneMobileHandler()));
                      servicesTypes.add(new servicesType("ORANGE MOBILE RECHARGE",new OrangeMobileForm(),new OrangeMobileHandler()));
                      servicesTypes.add(new servicesType("ETISALAT MOBILE RECHARGE",new EtisalatMobileForm(),new EtisalatMobileHandler()));
+                     servicesTypes.add(new servicesType("ETISALAT Internet Payment",new EtisalatInternetForm(),new EtisalatInternetHandler()));
+                     servicesTypes.add(new servicesType("ORANGE Internet Payment",new OrangeInternetForm(),new OrangeInternetHandler()));
+                     servicesTypes.add(new servicesType("WE Internet Payment",new WeInternetForm(),new WeInternetHandler()));
               }
               return entity;
        }
