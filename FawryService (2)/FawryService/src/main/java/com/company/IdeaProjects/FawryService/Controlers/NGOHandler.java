@@ -1,8 +1,9 @@
 package com.company.IdeaProjects.FawryService.Controlers;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
-public class HospitalDonationHandler extends Ihandler
+public class NGOHandler extends Ihandler
 {
     @Override
     public String Handler(ArrayList<String> Data) {
