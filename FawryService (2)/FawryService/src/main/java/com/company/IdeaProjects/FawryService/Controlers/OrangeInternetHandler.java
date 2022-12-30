@@ -16,6 +16,6 @@ public class OrangeInternetHandler extends Ihandler {
         if(!(amount==7||amount==15||amount==30||amount==45)) {
             return "PLEASE CHOOSE A PACKAGE AMOUNT!";
         }
-        return "YOUR DATA IS CORRECT";
+        return "YOU ARE ON GO NET " + amount + " PACKAGE"+" PLEASE PROCEED TO PAYMENT";
     }
 }

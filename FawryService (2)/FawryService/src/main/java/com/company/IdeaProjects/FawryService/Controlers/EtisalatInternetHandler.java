@@ -16,6 +16,6 @@ public class EtisalatInternetHandler extends Ihandler {
         if(!(amount==5||amount==10||amount==20)) {
             return "PLEASE CHOOSE A PACKAGE AMOUNT!";
         }
-        return "YOUR DATA IS CORRECT";
+        return "YOU ARE ON SUPER MEGA "+amount+" PACKAGE"+" PLEASE PROCEED TO PAYMENT";
     }
 }

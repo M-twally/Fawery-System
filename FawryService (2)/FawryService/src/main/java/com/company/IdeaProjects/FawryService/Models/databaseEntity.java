@@ -42,7 +42,10 @@ public class databaseEntity {
                      servicesTypes.add(new servicesType("ETISALAT Internet Payment",new EtisalatInternetForm(),new EtisalatInternetHandler()));
                      servicesTypes.add(new servicesType("ORANGE Internet Payment",new OrangeInternetForm(),new OrangeInternetHandler()));
                      servicesTypes.add(new servicesType("WE Internet Payment",new WeInternetForm(),new WeInternetHandler()));
+                     servicesTypes.add(new servicesType("VODAFONE Internet Payment",new VodafoneInternetForm(),new VodafoneInternetHandler()));
                      servicesTypes.add(new servicesType("MONTHLY Landline services",new MonthlyLandlineForm(),new MonthlyLandlineHandler()));
+                     servicesTypes.add(new servicesType("QUARTER Landline services",new QuarterLandlineForm(),new QuarterLandlineHandler()));
+                     servicesTypes.add(new servicesType("HOSPITALS Donations",new HospitalDonationForm(),new HospitalDonationHandler()));
 
               }
               return entity;

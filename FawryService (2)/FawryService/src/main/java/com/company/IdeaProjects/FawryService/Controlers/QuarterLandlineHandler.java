@@ -13,9 +13,9 @@ public class QuarterLandlineHandler extends Ihandler
             return  "YOUR NUMBER SHOULD START WITH 02";
         }
         int amount=Integer.parseInt(Data.get(1));
-        if(!(amount>=500&&amount<=10000)) {
+        if(!(amount>=500&&amount<=1000)) {
             return "YOUR AMOUNT RANGE SHOULD BE FROM 500-1000";
         }
-        return "YOUR DATA IS CORRECT";
+        return "YOUR DATA IS CORRECT,PLEASE PROCEED TO PAYMENT";
     }
 }

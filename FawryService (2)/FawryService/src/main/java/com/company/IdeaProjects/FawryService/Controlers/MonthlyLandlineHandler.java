@@ -16,6 +16,6 @@ public class MonthlyLandlineHandler extends Ihandler
         if(!(amount>=100&&amount<=500)) {
             return "YOUR AMOUNT RANGE SHOULD BE FROM 100-500";
         }
-        return "YOUR DATA IS CORRECT";
+        return "YOUR DATA IS CORRECT,PLEASE PROCEED TO PAYMENT";
     }
 }

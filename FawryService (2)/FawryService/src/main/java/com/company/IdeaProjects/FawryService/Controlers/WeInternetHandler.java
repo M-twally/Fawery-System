@@ -16,6 +16,6 @@ public class WeInternetHandler extends Ihandler {
         if(!(amount==40||amount==20||amount==10)) {
             return "PLEASE CHOOSE A PACKAGE AMOUNT!";
         }
-        return "YOUR DATA IS CORRECT";
+        return "YOU ARE ON " +amount+" NITRO PRIME PACKAGE "+" PLEASE PROCEED TO PAYMENT";
     }
 }
