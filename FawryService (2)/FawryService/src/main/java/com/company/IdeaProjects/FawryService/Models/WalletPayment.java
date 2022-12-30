@@ -5,7 +5,7 @@ public class WalletPayment implements iPayment{
     databaseEntity entity =databaseEntity.getInstance();
     @Override
     public float pay(transaction transaction) {
-        totalPayment=entity.getCurrentUser().walletBalance-transaction.amountOfTrans;
+        totalPayment=transaction.amountOfTrans;
         return totalPayment;
     }
 }

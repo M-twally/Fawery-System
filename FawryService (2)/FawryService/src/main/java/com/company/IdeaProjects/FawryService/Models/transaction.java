@@ -5,6 +5,8 @@ public class transaction {
     private int id;
     String transactionType;
     String transactionServiceType;
+    String wayOfPayment;
+    String TransactionStatus="none";
     float amountOfTrans;
     public transaction(){
         id=ID;
@@ -37,5 +39,19 @@ public class transaction {
 
     public void setTransactionServiceType(String transactionServiceType) {
         this.transactionServiceType = transactionServiceType;
+    }
+    public String getWayOfPayment() {
+        return wayOfPayment;
+    }
+    public void setWayOfPayment(String wayOfPayment) {
+        this.wayOfPayment = wayOfPayment;
+    }
+
+    public String getTransactionStatus() {
+        return TransactionStatus;
+    }
+
+    public void setTransactionStatus(String transactionStatus) {
+        TransactionStatus = transactionStatus;
     }
 }

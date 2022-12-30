@@ -8,6 +8,8 @@ public class Vodafone implements IservicesProvider  {
 	public Iform Createform(int type) {
 		if(type==1) {
 			return new VodafoneMobileForm();
+		}else if(type==2){
+			return new VodafoneInternetForm();
 		}
 		return null;
 	}
@@ -16,6 +18,8 @@ public class Vodafone implements IservicesProvider  {
 	public Ihandler CreateHandler(int type, ArrayList<String> Data) {
 		if(type==1) {
 			return new VodafoneMobileHandler();
+		}else if(type==2){
+			return new VodafoneInternetHandler();
 		}
 		return null;
 	}

@@ -8,6 +8,8 @@ public class We implements IservicesProvider {
 	public Iform Createform(int type) {
 		if(type==1) {
 			return new WeMobileForm();
+		}else if(type==2){
+			return new WeInternetForm();
 		}
 		return null;
 	}
@@ -16,6 +18,8 @@ public class We implements IservicesProvider {
 	public Ihandler CreateHandler(int type, ArrayList<String> Data) {
 		if(type==1) {
 			return new WeMobileHandler();
+		}else if(type==2){
+			return new WeInternetHandler();
 		}
 		return null;
 	}

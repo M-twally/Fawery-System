@@ -2,7 +2,7 @@ package com.company.IdeaProjects.FawryService.Controlers;
 
 import java.util.ArrayList;
 
-public class HospitalDonationHandler extends Ihandler
+public class CancerHospitalDonationHandler extends Ihandler
 {
     @Override
     public String Handler(ArrayList<String> Data) {

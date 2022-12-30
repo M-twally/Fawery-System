@@ -2,13 +2,13 @@ package com.company.IdeaProjects.FawryService.Controlers;
 
 import java.util.ArrayList;
 
-public class HospitalDonationForm extends Iform
+public class CancerHospitalDonationForm extends Iform
 {
     @Override
     public ArrayList<String> createForm() {
         String Phone = "Enter your Phone Number:";
-        String Name="Enter Hospital Name:";
-        String Code="Enter Hospital Zip Code:";
+        String Name="Enter Cancer Hospital Name:";
+        String Code="Enter Cancer Hospital Zip Code:";
         String Amount = "Enter your Amount FROM 1-10000:";
         data.add(Phone);
         data.add(Name);

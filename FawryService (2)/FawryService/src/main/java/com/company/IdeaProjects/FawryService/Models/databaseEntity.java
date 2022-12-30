@@ -3,6 +3,7 @@ package com.company.IdeaProjects.FawryService.Models;
 import com.company.IdeaProjects.FawryService.Controlers.*;
 import javafx.util.Pair;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.Vector;
@@ -12,6 +13,7 @@ public class databaseEntity {
        private static HashMap<Integer,String> PaymentType = new HashMap<Integer,String>();
        private static HashMap<Integer,String> IDTransactions = new HashMap<Integer,String>();
        private static HashMap<Integer, Pair<String,Float>> SpecificDiscount = new HashMap<Integer,Pair<String,Float>>();
+       private ArrayList<Pair<Integer,transaction>> RefundTransaction=new ArrayList<>();
        private static databaseEntity entity =null;
        private  user currentUser=null;
        private float OverallDiscount=0;
@@ -45,7 +47,7 @@ public class databaseEntity {
                      servicesTypes.add(new servicesType("VODAFONE Internet Payment",new VodafoneInternetForm(),new VodafoneInternetHandler()));
                      servicesTypes.add(new servicesType("MONTHLY Landline services",new MonthlyLandlineForm(),new MonthlyLandlineHandler()));
                      servicesTypes.add(new servicesType("QUARTER Landline services",new QuarterLandlineForm(),new QuarterLandlineHandler()));
-                     servicesTypes.add(new servicesType("HOSPITALS Donations",new HospitalDonationForm(),new HospitalDonationHandler()));
+                     servicesTypes.add(new servicesType("HOSPITALS Donations",new CancerHospitalDonationForm(),new CancerHospitalDonationHandler()));
                      servicesTypes.add(new servicesType("SCHOOLS Donations",new SchoolDonationForm(),new SchoolDonationHandler()));
                      servicesTypes.add(new servicesType("NGOs Donations",new NGOForm(),new NGOHandler()));
 
@@ -63,13 +65,7 @@ public class databaseEntity {
        public Vector<user> getUserVector() {
               return userVector;
        }
-       public void getUsers(){
-              for (com.company.IdeaProjects.FawryService.Models.user user : userVector) {
-                     System.out.println(user.userName);
-                     System.out.println(user.email);
-//                     user.getUserTransactions();
-              }
-       }
+
        public user getCurrentUser() {
               for (int i=0;i<entity.getUserVector().size();i++) {
                      if (Objects.equals(getUserVector().get(i).getEmail(), currentUser.getEmail()) && Objects.equals(getUserVector().get(i).getPassword(),currentUser.getPassword())) {
@@ -101,5 +97,12 @@ public class databaseEntity {
 
        public HashMap<Integer, Pair<String,Float>> getIDSpecificDiscount() {
               return SpecificDiscount;
+       }
+       public ArrayList<Pair<Integer, transaction>> getRefundTransaction() {
+              return RefundTransaction;
+       }
+
+       public void setRefundTransaction(ArrayList<Pair<Integer, transaction>> refundTransaction) {
+              RefundTransaction = refundTransaction;
        }
 }
