@@ -46,6 +46,7 @@ public class databaseEntity {
                      servicesTypes.add(new servicesType("MONTHLY Landline services",new MonthlyLandlineForm(),new MonthlyLandlineHandler()));
                      servicesTypes.add(new servicesType("QUARTER Landline services",new QuarterLandlineForm(),new QuarterLandlineHandler()));
                      servicesTypes.add(new servicesType("HOSPITALS Donations",new HospitalDonationForm(),new HospitalDonationHandler()));
+                     servicesTypes.add(new servicesType("SCHOOLS Donations",new SchoolDonationForm(),new SchoolDonationHandler()));
 
               }
               return entity;
