@@ -15,9 +15,8 @@ public class adminCTRL {
     AdminBSL adminBSL =new AdminBSL();
 
     @PostMapping(value = "/AddOverallDiscount")
-    String updateOverallDiscount(@RequestBody float amount){
-        entity.setOverallDiscount(amount);
-        return "ADDING SUCCESSFULLY";
+    String updateOverallDiscount(@RequestBody String amount){
+        return adminBSL.updateOverAllDiscount(amount);
     }
     @GetMapping(value = "/TransactionsTypes")
     public HashMap<Integer, String> ShowWayOfPayment(){
@@ -33,13 +32,23 @@ public class adminCTRL {
         return adminBSL.ShowUserTransaction(userId,TransactionID);
     }
 
-
     @GetMapping(value = "/listOfSpecificDiscountWithID")
-    public  HashMap<Integer, Pair<String,Float>>listOfSpecificDiscount(){
+    public  HashMap<Integer,Pair<String,Float>>listOfSpecificDiscount(){
         return entity.getIDSpecificDiscount();
     }
+
     @PostMapping(value = "/AddingSpecificDiscount")
-    String updateOverallDiscount(@RequestBody float arr[]){
+    String updateOverallDiscount(@RequestBody ArrayList<String>arr){
         return adminBSL.AddingSpecificDiscount(arr);
+    }
+
+    @GetMapping(value = "/listOfRequestTransactions")
+    public   ArrayList<transaction> ShowRefundRequests(){
+        return adminBSL.ShowRefundRequests();
+    }
+    @PostMapping(value = "/SetStatusOfRefund")
+    String SetStatusOfRefund(@RequestBody ArrayList<String>arr){
+        return adminBSL.SetStatusOfRefund(arr);
+
     }
 }

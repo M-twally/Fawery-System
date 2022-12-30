@@ -44,6 +44,11 @@ public class ServicesBSL {
         return listOfServices;
     }
     public ArrayList<String> getForm(int id){
+        ArrayList<String> message=new ArrayList<>();
+        if(entity.getCurrentUser()==null){
+            message.add("YOU SHOULD SIGNIN FIRST!");
+            return message;
+        }
         ArrayList<String> form=new ArrayList<>();
         for(int i=0;i<entity.getServicesTypes().size();i++){
             if(entity.getServicesTypes().get(i).getId()==id){
@@ -55,7 +60,17 @@ public class ServicesBSL {
         return null;
     }
 
-    public String CompleteForm(int id, ArrayList<String> dataForm){
+    public String CompleteForm(ArrayList<String> dataForm){
+        int id=0;
+        try {
+            if(dataForm.size()<=0){
+                return "PLEASE ENTER DATA!";
+            }
+            id=Integer.parseInt(dataForm.get(0));
+            dataForm.remove(0);
+        }catch (Exception e){
+            return "PLEASE CHECK YOUR ID ";
+        }
         if(entity.getCurrentUser()==null){
             return "YOU SHOULD SIGNIN FIRST!";
         }
@@ -65,16 +80,26 @@ public class ServicesBSL {
                 if(Objects.equals(entity.getServicesTypes().get(i).getIhandler().Handler(dataForm), "YOUR DATA IS CORRECT")){
                     int size=dataForm.size()-1;
                     int amount=Integer.parseInt(dataForm.get(size));
-                    entity.getCurrentUser().setLastOpenForm(takeName(entity.getServicesTypes().get(i).getName()));
+                    entity.getCurrentUser().setLastOpenFormService(takeName(entity.getServicesTypes().get(i).getName()));
                     entity.getCurrentUser().setUserCurrentAmount(amount);
                 }
                 return  entity.getServicesTypes().get(i).getIhandler().Handler(dataForm);
             }
         }
-        return null;
+        return "NO MATCHING ID FOUND!";
     }
+
     public String takeName(String name){
         String result = null;
+        String serviceProvider = "";
+        for (int i=0;i<name.length();i++){
+            if(name.charAt(i)!=' '){
+                serviceProvider+=name.charAt(i);
+            }else{
+                entity.getCurrentUser().setLastFormProvider(serviceProvider);
+                break;
+            }
+        }
         for(int i=0;i<name.length();i++){
             if(name.charAt(i)==' '){
                 result=name.substring(i+1);

@@ -22,21 +22,21 @@ public class userCTRL {
       public String SignInCTRL(@RequestBody user user){
           return userBSl.signIn(user);
       }
-      @GetMapping(value = "/searchForServices/{serviceInput}")
-      public ArrayList<String> searchMatchingServices(@PathVariable ("serviceInput") String serviceInput){
-          return servicesBsl.Search(serviceInput);
-      }
+    @GetMapping(value = "/searchForServices/{serviceInput}")
+    public ArrayList<String> searchMatchingServices(@PathVariable ("serviceInput") String serviceInput){
+        return servicesBsl.Search(serviceInput);
+    }
     @GetMapping(value = "/choiceForm/{id}")
     public ArrayList<String> choiceService(@PathVariable ("id")int id){
         return servicesBsl.getForm(id);
     }
-    @GetMapping(value = "/formInput/{serviceID}/{DataForm}")
-    public String EnterFormData(@PathVariable ("serviceID")int id ,@PathVariable ("DataForm") ArrayList<String> dataForm){
-        return servicesBsl.CompleteForm(id,dataForm);
+    @PostMapping(value = "/formInput")
+    public String EnterFormData(@RequestBody ArrayList<String> dataForm){
+        return servicesBsl.CompleteForm(dataForm);
     }
 
     @PostMapping(value = "/AddToWallet")
-    String updateOverallDiscount(@RequestBody float amount){
+    String updateOverallDiscount(@RequestBody String amount){
         return   userBSl.addWallet(amount);
 
     }
@@ -52,31 +52,16 @@ public class userCTRL {
     public ArrayList<String> Payment(@PathVariable ("ID")int id){
         return userBSl.PaymentMethod(id);
     }
-
-
-    public user  getUser(){
-        return entity.getCurrentUser();
+    @GetMapping(value = "/ViewCurrentUserPaymentTransactions")
+    public ArrayList<transaction> ShowPaymentTransactions(){
+        return userBSl.ShowPaymentTransactions();
     }
 
+    @PostMapping(value = "/MakeRefundRequest")
+    String MakeRefundRequest(@RequestBody String amount){
+        return   userBSl.MakeRefundRequest(amount);
 
-
-
-    public float ShowOverallDiscount(){
-        return entity.getOverallDiscount();
     }
-//      public void callForm(factoryServiceProvider service,String typeOfService,String provider) {
-//          service.orderForm(typeOfService, provider);
-//      }
-
-//      public void setTransaction(transaction t  , int amount , String TransactionType, String TransactionService){
-//          t.setAmountOfTrans(amount);
-//          t.setTransactionType("pay");
-//          t.setTransactionServiceType("Mobile recharge services");
-//      }
-//      public float payTransaction(iPayment payment, transaction t ){
-//          t.setAmountOfTrans(payment.pay(t));
-//          return payment.pay(t);
-//      }
 
 
 }
