@@ -1,4 +1,4 @@
- package com.company.IdeaProjects.FawryService.Models;
+package com.company.IdeaProjects.FawryService.Models;
 
 import java.util.Vector;
 
@@ -21,6 +21,7 @@ public class user {
         id=ID;
         ID++;
     }
+
     public int getId() {
         return id;
     }
@@ -29,13 +30,16 @@ public class user {
         return userName;
     }
 
+
     public String getEmail() {
         return email;
     }
 
+
     public String getPassword() {
         return Password;
     }
+
 
     public float getWalletBalance() {
         return walletBalance;
@@ -60,7 +64,6 @@ public class user {
     public void setUserCurrentAmount(float userCurrentAmount) {
         this.userCurrentAmount = userCurrentAmount;
     }
-
 
     public Vector<transaction> getTransactionsVector() {
         return transactionsVector;

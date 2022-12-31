@@ -1,9 +1,13 @@
 package com.company.IdeaProjects.FawryService.Bsl;
+import com.company.IdeaProjects.FawryService.Models.databaseEntity;
+import com.company.IdeaProjects.FawryService.Models.transaction;
+import com.company.IdeaProjects.FawryService.Models.user;
 import com.company.IdeaProjects.FawryService.Models.*;
 import javafx.util.Pair;
 
+
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 
 public class UserBSl {
@@ -59,7 +63,7 @@ public class UserBSl {
         String PaymentWay;
         ArrayList<String> message=new ArrayList<>();
         if(entity.getCurrentUser()==null){
-            message.add("YOU SHOULD SIGN IN FIRST!");
+            message.add("YOU SHOULD SIGNIN FIRST!");
             return message;
         }else{
             if(id==2){
@@ -83,7 +87,6 @@ public class UserBSl {
                     return message;
                 }
                 float sub=entity.getCurrentUser().getWalletBalance()-TotalPayment;
-                TotalPayment=entity.getCurrentUser().getWalletBalance()-sub;
                 entity.getCurrentUser().setWalletBalance(sub);
             }else{
                 iPay=new creditCard();
@@ -149,6 +152,7 @@ public class UserBSl {
         }
         return "DO NOT FOUND YOUR TRANSACTION PLEASE CHECK YOUR ID";
     }
+
     private transaction getTransactions(){
         transaction t=new transaction();
         t.setTransactionType("Payment transaction");
@@ -157,7 +161,7 @@ public class UserBSl {
         return t;
     }
     private float GETSpecialDiscountAmount(String SpecialDiscount){
-        for (Map.Entry<Integer, Pair<String,Float>> entry : entity.getIDSpecificDiscount().entrySet()) {
+        for (Entry<Integer, Pair<String,Float>> entry : entity.getIDSpecificDiscount().entrySet()) {
             if (Objects.equals(entry.getValue().getKey(), SpecialDiscount)){
                 return entry.getValue().getValue();
             }

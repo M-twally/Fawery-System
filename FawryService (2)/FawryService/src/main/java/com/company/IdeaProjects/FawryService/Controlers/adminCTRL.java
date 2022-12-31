@@ -1,19 +1,18 @@
 package com.company.IdeaProjects.FawryService.Controlers;
-import com.company.IdeaProjects.FawryService.Models.databaseEntity;
 import com.company.IdeaProjects.FawryService.Bsl.AdminBSL;
+import com.company.IdeaProjects.FawryService.Models.databaseEntity;
 import com.company.IdeaProjects.FawryService.Models.transaction;
-import com.company.IdeaProjects.FawryService.Models.user;
-import javafx.util.Pair;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
+import javafx.util.Pair;
 @RestController
 public class adminCTRL {
     databaseEntity entity =databaseEntity.getInstance();
     AdminBSL adminBSL =new AdminBSL();
-
     @PostMapping(value = "/AddOverallDiscount")
     String updateOverallDiscount(@RequestBody String amount){
         return adminBSL.updateOverAllDiscount(amount);
@@ -27,6 +26,7 @@ public class adminCTRL {
     public ArrayList<String> ShowAllUsersID(){
         return adminBSL.getAllUsersData();
     }
+
     @GetMapping(value = "/listAllUserTransactions/{UserID}/{TransactionID}")
     public  ArrayList<transaction>  listAllUserTransactions(@PathVariable("UserID")int userId , @PathVariable ("TransactionID") int TransactionID){
         return adminBSL.ShowUserTransaction(userId,TransactionID);
@@ -51,4 +51,7 @@ public class adminCTRL {
         return adminBSL.SetStatusOfRefund(arr);
 
     }
+
+
+
 }

@@ -5,20 +5,20 @@ import java.util.ArrayList;
 public class QuarterLandlineHandler extends Ihandler
 {
     @Override
-    public String Handler(ArrayList<String> Data) {
-        for(int i=0;i<Data.get(0).length();i++){
-            if(Data.get(0).length()!=10){
+    public String Handler(ArrayList<String> data) {
+        for(int i = 0; i< data.get(0).length(); i++){
+            if(data.get(0).length()!=10){
                 return "YOUR NUMBER DIGIT MUST BE 10";
             }
-            if(Character.isLetter(Data.get(0).charAt(i))){
+            if(Character.isLetter(data.get(0).charAt(i))){
                 return "YOUR NUMBER SHOULD NOT HAVE CHARACTERS !";
             }
-            if(Data.get(0).charAt(0)!='0'||Data.get(0).charAt(1)!='2') {
+            if(data.get(0).charAt(0)!='0'|| data.get(0).charAt(1)!='2') {
                 return  "YOUR NUMBER SHOULD START WITH 02";
             }
 
         }
-        int amount=Integer.parseInt(Data.get(1));
+        int amount=Integer.parseInt(data.get(1));
         if(!(amount>=500&&amount<=1000)) {
             return "YOUR AMOUNT RANGE SHOULD BE FROM 500-1000";
         }

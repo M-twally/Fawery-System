@@ -8,4 +8,5 @@ public class WalletPayment implements iPayment{
         totalPayment=transaction.amountOfTrans;
         return totalPayment;
     }
+
 }

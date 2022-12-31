@@ -19,9 +19,9 @@ public class databaseEntity {
        private float OverallDiscount=0;
        private static   Vector<servicesType> servicesTypes=new Vector<>();
        private static Pair<String,Float> P1=new Pair<>("MOBILE RECHARGE",0.0F);
-       private static Pair<String,Float> P2=new Pair<>("Internet Payment",0.0F);
-       private static Pair<String,Float> P3=new Pair<>("Landline services",0.0F);
-       private static Pair<String,Float> P4=new Pair<>("Donations",0.0F);
+       private static Pair<String,Float> P2=new Pair<>("INTERNET PAYMENT",0.0F);
+       private static Pair<String,Float> P3=new Pair<>("LANDLINE SERVICES",0.0F);
+       private static Pair<String,Float> P4=new Pair<>("DONATIONS",0.0F);
 
 
        public static databaseEntity getInstance(){
@@ -41,15 +41,15 @@ public class databaseEntity {
                      servicesTypes.add(new servicesType("VODAFONE MOBILE RECHARGE",new VodafoneMobileForm(),new VodafoneMobileHandler()));
                      servicesTypes.add(new servicesType("ORANGE MOBILE RECHARGE",new OrangeMobileForm(),new OrangeMobileHandler()));
                      servicesTypes.add(new servicesType("ETISALAT MOBILE RECHARGE",new EtisalatMobileForm(),new EtisalatMobileHandler()));
-                     servicesTypes.add(new servicesType("ETISALAT Internet Payment",new EtisalatInternetForm(),new EtisalatInternetHandler()));
-                     servicesTypes.add(new servicesType("ORANGE Internet Payment",new OrangeInternetForm(),new OrangeInternetHandler()));
-                     servicesTypes.add(new servicesType("WE Internet Payment",new WeInternetForm(),new WeInternetHandler()));
-                     servicesTypes.add(new servicesType("VODAFONE Internet Payment",new VodafoneInternetForm(),new VodafoneInternetHandler()));
-                     servicesTypes.add(new servicesType("MONTHLY Landline services",new MonthlyLandlineForm(),new MonthlyLandlineHandler()));
-                     servicesTypes.add(new servicesType("QUARTER Landline services",new QuarterLandlineForm(),new QuarterLandlineHandler()));
-                     servicesTypes.add(new servicesType("HOSPITALS Donations",new CancerHospitalDonationForm(),new CancerHospitalDonationHandler()));
-                     servicesTypes.add(new servicesType("SCHOOLS Donations",new SchoolDonationForm(),new SchoolDonationHandler()));
-                     servicesTypes.add(new servicesType("NGOs Donations",new NGOForm(),new NGOHandler()));
+                     servicesTypes.add(new servicesType("ETISALAT INTERNET PAYMENT",new EtisalatInternetForm(),new EtisalatInternetHandler()));
+                     servicesTypes.add(new servicesType("ORANGE INTERNET PAYMENT",new OrangeInternetForm(),new OrangeInternetHandler()));
+                     servicesTypes.add(new servicesType("WE INTERNET PAYMENT",new WeInternetForm(),new WeInternetHandler()));
+                     servicesTypes.add(new servicesType("VODAFONE INTERNET PAYMENT",new VodafoneInternetForm(),new VodafoneInternetHandler()));
+                     servicesTypes.add(new servicesType("MONTHLY LANDLINE SERVICES",new MonthlyLandlineForm(),new MonthlyLandlineHandler()));
+                     servicesTypes.add(new servicesType("QUARTER LANDLINE SERVICES",new QuarterLandlineForm(),new QuarterLandlineHandler()));
+                     servicesTypes.add(new servicesType("HOSPITALS DONATIONS",new CancerHospitalDonationForm(),new CancerHospitalDonationHandler()));
+                     servicesTypes.add(new servicesType("SCHOOLS DONATIONS",new SchoolDonationForm(),new SchoolDonationHandler()));
+                     servicesTypes.add(new servicesType("NGOs DONATIONS",new NGOForm(),new NGOHandler()));
 
               }
               return entity;
@@ -57,7 +57,9 @@ public class databaseEntity {
        public void setCurrentUser(user currentUser) {
               this.currentUser = currentUser;
        }
+
        public void setOverallDiscount(float overallDiscount) {
+
 
               OverallDiscount = overallDiscount;
        }
@@ -74,9 +76,12 @@ public class databaseEntity {
               }
               return currentUser;
        }
+
+
        public float getOverallDiscount() {
               return OverallDiscount;
        }
+
 
 
        public  Vector<servicesType> getServicesTypes() {
@@ -98,6 +103,7 @@ public class databaseEntity {
        public HashMap<Integer, Pair<String,Float>> getIDSpecificDiscount() {
               return SpecificDiscount;
        }
+
        public ArrayList<Pair<Integer, transaction>> getRefundTransaction() {
               return RefundTransaction;
        }

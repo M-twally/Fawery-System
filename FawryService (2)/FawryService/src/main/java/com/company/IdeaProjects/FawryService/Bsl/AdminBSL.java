@@ -5,6 +5,7 @@ import com.company.IdeaProjects.FawryService.Models.transaction;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -32,13 +33,13 @@ public class AdminBSL {
         entity.setOverallDiscount(AMOUNT);
         return "ADDING SUCESSEFULY";
     }
-    public ArrayList<transaction> ShowUserTransaction(int UserID, int TransactionID){
+    public ArrayList<transaction> ShowUserTransaction(int UserID,int TransactionID){
         ArrayList<transaction>t=new ArrayList<>();
         for(int i=0;i<entity.getUserVector().size();i++){
             if(entity.getUserVector().get(i).getId()==UserID){
                 for(int j=0;j<entity.getUserVector().get(i).getTransactionsVector().size();j++){
-                    if(GETtansactionName(TransactionID)!=null){
-                        String Tname=GETtansactionName(TransactionID);
+                    if(GetTransactionName(TransactionID)!=null){
+                        String Tname= GetTransactionName(TransactionID);
                         if(Objects.equals(entity.getUserVector().get(i).getTransactionsVector().get(j).getTransactionType(), Tname)){
                             t.add(entity.getUserVector().get(i).getTransactionsVector().get(j));
                         }
@@ -140,7 +141,7 @@ public class AdminBSL {
     }
 
 
-    private String GETtansactionName(int id){
+    private String GetTransactionName(int id){
         for (Map.Entry<Integer,String> entry : entity.getIDTransactions().entrySet()) {
             if (Objects.equals(id, entry.getKey())){
                 return entry.getValue();
@@ -148,6 +149,7 @@ public class AdminBSL {
         }
         return null;
     }
+
 
 
 }

@@ -1,9 +1,8 @@
 package com.company.IdeaProjects.FawryService.Bsl;
 import com.company.IdeaProjects.FawryService.Models.databaseEntity;
-import com.company.IdeaProjects.FawryService.Models.servicesType;
+
 
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Objects;
 
 public class ServicesBSL {
@@ -59,7 +58,6 @@ public class ServicesBSL {
 
         return null;
     }
-
     public String CompleteForm(ArrayList<String> dataForm){
         int id=0;
         try {
@@ -77,7 +75,7 @@ public class ServicesBSL {
         for(int i=0;i<entity.getServicesTypes().size();i++){
             if(entity.getServicesTypes().get(i).getId()==id){
                 //add amount to use it in payment
-                if(Objects.equals(entity.getServicesTypes().get(i).getIhandler().Handler(dataForm), "YOUR DATA IS CORRECT")){
+                if(Objects.equals(entity.getServicesTypes().get(i).getIhandler().Handler(dataForm), "YOUR DATA IS CORRECT,PLEASE PROCEED TO PAYMENT")){
                     int size=dataForm.size()-1;
                     int amount=Integer.parseInt(dataForm.get(size));
                     entity.getCurrentUser().setLastOpenFormService(takeName(entity.getServicesTypes().get(i).getName()));
@@ -88,7 +86,6 @@ public class ServicesBSL {
         }
         return "NO MATCHING ID FOUND!";
     }
-
     public String takeName(String name){
         String result = null;
         String serviceProvider = "";
